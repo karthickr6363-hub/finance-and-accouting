@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FinanceHub</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .login-container {
+            min-height: 100vh;
+            max-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+        
+        .login-left {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .login-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .login-left-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .login-left-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: white;
+        }
+        
+        .login-left-content p {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+        
+        .login-right {
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            overflow-y: auto;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .auth-box {
+            max-width: 450px;
+            width: 100%;
+            background: var(--white);
+            padding: 18px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            margin: 0 auto;
+            max-height: calc(100vh - 30px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .auth-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .auth-box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .auth-box::-webkit-scrollbar-thumb {
+            background: var(--light-color);
+            border-radius: 3px;
+        }
+        
+        .auth-tabs {
+            margin-bottom: 12px !important;
+        }
+        
+        .auth-tab {
+            padding: 10px !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .login-right .form-group {
+            margin-bottom: 12px !important;
+        }
+        
+        .login-right .form-group label {
+            margin-bottom: 5px !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .login-right h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 5px !important;
+        }
+        
+        .login-right .text-center {
+            margin-bottom: 12px !important;
+        }
+        
+        .login-right .text-center p {
+            font-size: 0.85rem !important;
+            margin-bottom: 0 !important;
+        }
+        
+        .login-right input {
+            padding: 10px 12px !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .login-right button {
+            padding: 10px 20px !important;
+            font-size: 0.95rem !important;
+        }
+        
+        .login-right .btn-primary {
+            margin-bottom: 8px;
+        }
+        
+        .social-btn {
+            padding: 8px !important;
+            font-size: 0.9rem !important;
+        }
+        
+        .login-right .remember-forgot {
+            margin: 10px 0 !important;
+        }
+        
+        .login-right .divider {
+            margin: 10px 0 !important;
+        }
+        
+        .login-right .social-buttons {
+            gap: 6px !important;
+        }
+        
+        @media (max-width: 968px) {
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-left {
+                padding: 20px 15px;
+                min-height: 200px;
+                height: auto;
+            }
+            
+            .login-left-content h1 {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .login-left-content p {
+                font-size: 0.9rem;
+            }
+            
+            .login-right {
+                padding: 15px;
+                height: auto;
+            }
+            
+            .auth-box {
+                padding: 18px;
+                max-height: none;
+            }
+            
+            .auth-tabs {
+                margin-bottom: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0;">
+    <div class="login-container">
+        <!-- LEFT SIDE - Branding -->
+        <div class="login-left">
+            <div class="login-left-content">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: inline-block; margin-bottom: 15px;">
+                    <div class="logo" style="font-size: 2rem; font-weight: 700; color: white;">
+                        Finance<span style="color: var(--accent-color);">Hub</span>
+                    </div>
+                </a>
+                <h1>Welcome Back</h1>
+                <p>Access your financial dashboard and manage your accounts with ease. Your trusted partner in financial excellence.</p>
+            </div>
+        </div>
+        
+        <!-- RIGHT SIDE - Login Form -->
+        <div class="login-right">
+            <div class="auth-box">
+                    <!-- TABS -->
+                    <div class="auth-tabs">
+                        <button type="button" class="auth-tab active" id="loginTab">Sign In</button>
+                        <button type="button" class="auth-tab" id="registerTab">Create Account</button>
+                    </div>
+
+                    <!-- LOGIN FORM -->
+                    <div id="loginSection" style="display: block;">
+                        <div class="text-center" style="margin-bottom: 12px;">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 4px; color: var(--primary-color);">Welcome Back</h2>
+                            <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">Sign in to access your account</p>
+                        </div>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="loginEmail" required placeholder="you@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="loginPassword" required placeholder="••••••••">
+                            </div>
+                            <div class="remember-forgot" style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" style="margin: 0;">
+                                    <span style="font-size: 0.85rem;">Remember me</span>
+                                </label>
+                                <a href="#" style="color: var(--primary-color); text-decoration: none; font-size: 0.85rem;">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                        </form>
+
+                        <div class="divider" style="margin: 10px 0; text-align: center;">
+                            <span style="color: var(--text-light); font-size: 0.85rem;">or</span>
+                        </div>
+
+                        <div class="social-buttons" style="display: flex; flex-direction: column; gap: 6px;">
+                            <button type="button" class="social-btn google">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            <span>Continue with Google</span>
+                        </button>
+                            <button type="button" class="social-btn facebook">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span>Continue with Facebook</span>
+                        </button>
+                        </div>
+                    </div>
+
+                    <!-- REGISTER FORM -->
+                    <div id="registerSection" style="display: none;">
+                        <div class="text-center" style="margin-bottom: 12px;">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 4px; color: var(--primary-color);">Create Account</h2>
+                            <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">Join FinanceHub and start your financial journey</p>
+                        </div>
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="fullName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" id="registerEmail" required placeholder="you@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="registerPassword" required placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="confirmPassword" required placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                        </form>
+
+                        <div class="divider" style="margin: 10px 0; text-align: center;">
+                            <span style="color: var(--text-light); font-size: 0.85rem;">or</span>
+                        </div>
+
+                        <div class="social-buttons" style="display: flex; flex-direction: column; gap: 6px;">
+                            <button type="button" class="social-btn google">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                                <span>Continue with Google</span>
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                                <span>Continue with Facebook</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
